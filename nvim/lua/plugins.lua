@@ -45,7 +45,8 @@ require('packer').startup(function(use)
 
   -- Git related plugins
   use 'tpope/vim-fugitive'
---  use 'tpope/vim-rhubarb'
+  use 'tpope/vim-rhubarb'
+  use 'tpope/vim-repeat'
   use 'lewis6991/gitsigns.nvim'
   use 'nvim-lua/plenary.nvim'
   use 'lervag/vimtex'
@@ -58,9 +59,8 @@ require('packer').startup(function(use)
   use 'BurntSushi/ripgrep'
   use 'kyazdani42/nvim-web-devicons'
   use 'kylechui/nvim-surround'
-  use {
-  "folke/which-key.nvim",
-  config = function()
+  use { "folke/which-key.nvim",
+    config = function()
     require("which-key").setup {
       -- your configuration comes here
       -- or leave it empty to use the default settings
@@ -68,6 +68,7 @@ require('packer').startup(function(use)
   end
   }
   use 'kdheepak/lazygit.nvim'
+  -- COLOUR SCHEMES
   use 'rebelot/kanagawa.nvim'
   use 'EdenEast/nightfox.nvim'
   use 'ellisonleao/gruvbox.nvim'

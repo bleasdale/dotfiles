@@ -154,6 +154,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\njhae\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neodev.nvim",
     url = "https://github.com/folke/neodev.nvim"
   },
+  ["neovim-remote"] = {
+    loaded = true,
+    path = "C:\\Users\\njhae\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neovim-remote",
+    url = "https://github.com/mhinz/neovim-remote"
+  },
   ["nightfox.nvim"] = {
     loaded = true,
     path = "C:\\Users\\njhae\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nightfox.nvim",
@@ -253,6 +258,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\njhae\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-nightfly-colors",
     url = "https://github.com/bluz71/vim-nightfly-colors"
+  },
+  ["vim-repeat"] = {
+    loaded = true,
+    path = "C:\\Users\\njhae\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-repeat",
+    url = "https://github.com/tpope/vim-repeat"
+  },
+  ["vim-rhubarb"] = {
+    loaded = true,
+    path = "C:\\Users\\njhae\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-rhubarb",
+    url = "https://github.com/tpope/vim-rhubarb"
   },
   ["vim-startify"] = {
     loaded = true,

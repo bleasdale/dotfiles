@@ -18,7 +18,7 @@ let g:startify_lists = [
           \ { 'type': 'commands',  'header': ['   Commands']       },
           \ ]
 let g:startify_bookmarks = [
-          \ { 'v': '~/.config/nvim/init.vim' },
+          \ { 'v': '~/.config/nvim/init.lua' },
           \ { 'm': 'C:\Users\njhae\Documents\JIS-sync\JIS-MathsChallenge\WeeklyPuzzle\current.tex' },
           \ ]
 
