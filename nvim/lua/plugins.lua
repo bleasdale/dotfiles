@@ -50,6 +50,7 @@ require('packer').startup(function(use)
   use 'nvim-lua/plenary.nvim'
   use 'lervag/vimtex'
   use 'latex-lsp/texlab'
+  use 'mhinz/neovim-remote'
   use 'mhinz/vim-startify'
   use 'sharkdp/fd'
   use 'ggandor/leap.nvim'
