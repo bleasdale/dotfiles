@@ -19,5 +19,4 @@ vim.g.vimtex_compiler_latexmk_engines = {
 --let g:vimtex_view_method = 'okular' " vimtex doesn't like Okular, in MS
 --Windows at least
 vim.g.vimtex_view_general_viewer = 'SumatraPDF.exe'
-vim.g.vimtex_view_general_options = [[-reuse-instance -forward-search @tex @line @pdf]]
-vim.g.vimtex_view_general_options_latexmk = '--unique'
+vim.g.vimtex_view_general_options = [[--unique -reuse-instance -forward-search file:@tex @line @pdf]]

@@ -1,4 +1,4 @@
--- Colour scheme, highlighting, cursors and lines
+-- Colour scheme, font, highlighting, cursors and lines
 --
 vim.cmd([[ colorscheme monokai ]])
 vim.opt.guicursor = "n-v-c-sm:block-blinkon0,i-ci-ve:ver25-Cursor-blinkon500-blinkoff250,r-cr-o:hor20"

@@ -57,6 +57,16 @@ require('packer').startup(function(use)
   use 'BurntSushi/ripgrep'
   use 'kyazdani42/nvim-web-devicons'
   use 'kylechui/nvim-surround'
+  use {
+  "folke/which-key.nvim",
+  config = function()
+    require("which-key").setup {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+    }
+  end
+  }
+  use 'kdheepak/lazygit.nvim'
   use 'rebelot/kanagawa.nvim'
   use 'EdenEast/nightfox.nvim'
   use 'ellisonleao/gruvbox.nvim'

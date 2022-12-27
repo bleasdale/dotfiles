@@ -80,6 +80,9 @@ km.set("n", "<leader>9", "9gt", { desc = "Go to tab number 9." })
 -- Make visual yanks place the cursor back where it started
 km.set("v", "y", "ygv<ESC>", { desc = "Yank and put cursor back." })
 
+-- call :LazyGit
+km.set("n", "<leader>lg", ":LazyGit<CR>", { desc = "Open a lazygit floating window in the current working directory." })
+
 -- telescope related maps
 -- See `:help telescope.builtin`
 km.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
