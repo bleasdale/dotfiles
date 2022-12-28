@@ -30,5 +30,5 @@
 --
 require("NJH1.plugins")
 require("NJH1.set")
-require("NJH1.colourscheme")
 require("NJH1.maps")
+require("NJH1.colourscheme")

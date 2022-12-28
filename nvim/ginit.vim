@@ -1,4 +1,9 @@
-GuiFont! Hack:12
+if exists('g:GuiLoaded')
+  GuiFont! Hack\ NF:12:l
+  " GuiPopupmenu 0
+  " GuiTabline 0
+  " GuiLinespace 2
+endif
 
 let s:fontsize = 12
 function! AdjustFontSize(amount)

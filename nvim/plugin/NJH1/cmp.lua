@@ -5,7 +5,8 @@ local luasnip = require 'luasnip'
 cmp.setup {
   snippet = {
     expand = function(args)
-      luasnip.lsp_expand(args.body)
+      luasnip.lsp_expand(args.body) -- for 'luasnip'
+      -- vim.fn["UltiSnips#Anon"](args.body) -- for 'UltiSnips'
     end,
   },
   mapping = cmp.mapping.preset.insert {
@@ -38,5 +39,9 @@ cmp.setup {
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    --{ name = 'ultisnips' },
   },
+  {
+    { name = 'buffer' },
+  }
 }

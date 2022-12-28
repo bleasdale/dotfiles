@@ -28,7 +28,15 @@ require('packer').startup(function(use)
 
   use { -- Autocompletion
     'hrsh7th/nvim-cmp',
-    requires = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
+    --requires = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
+    requires = {
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-nvim-lua",
+      "L3MON4D3/LuaSnip",
+      "saadparwaiz1/cmp_luasnip"
+      },
   }
 
   use { -- Highlight, edit, and navigate code
@@ -48,6 +56,7 @@ require('packer').startup(function(use)
   use 'tpope/vim-rhubarb'
   use 'tpope/vim-repeat'
   use 'lewis6991/gitsigns.nvim'
+
   use 'nvim-lua/plenary.nvim'
   use 'lervag/vimtex'
   use 'latex-lsp/texlab'
@@ -56,6 +65,7 @@ require('packer').startup(function(use)
   use 'sharkdp/fd'
   use 'ggandor/leap.nvim'
   use 'SirVer/ultisnips'
+  use 'quangnguyen30192/cmp-nvim-ultisnips'
   use 'BurntSushi/ripgrep'
   use 'kyazdani42/nvim-web-devicons'
   use 'kylechui/nvim-surround'
