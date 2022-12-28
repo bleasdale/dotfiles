@@ -22,6 +22,9 @@ km.set("n", "<leader>ev", ":vsplit ~/.config/nvim/init.lua<CR>", {silent = true,
 -- Packer update
 km.set("n", "<leader>u", ":PackerSync<CR>", {desc = "Packer Update (Sync)" })
 
+-- 'cd' to the dir in which the current buffer is, but only for the current window
+km.set("n", "<leader>cd", ":lcd %:h<CR>", { desc = "Change the cwd to the location of the current buffer, but only for the current buffer." })
+
 -- resize window
 km.set("n", "<leader><UP>", ":resize +5<CR>", {silent = true, desc = "Increase vertical window size."})
 km.set("n", "<leader><DOWN>", ":resize -5<CR>", {silent = true, desc = "Decrease vertical window size."})
