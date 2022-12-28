@@ -28,7 +28,7 @@
 --
 --                         21 Dec 2022
 --
-require("plugins")
-require("set")
-require("colourscheme")
-require("maps")
+require("NJH1.plugins")
+require("NJH1.set")
+require("NJH1.colourscheme")
+require("NJH1.maps")
