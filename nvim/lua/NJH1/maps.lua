@@ -103,3 +103,6 @@ km.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]e
 km.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 km.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 km.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+
+-- Telescope file browser
+km.set('n', '<leader>fb', function() require("telescope").extensions.file_browser.file_browser() end, { desc = "Open Telescope file browser" })
