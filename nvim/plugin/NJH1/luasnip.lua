@@ -11,4 +11,5 @@ require("luasnip").config.set_config({ -- Setting LuaSnip config
 })
 
 require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/luasnip/" })
+require("luasnip.loaders.from_vscode").load({ paths = "~/AppData/Local/nvim-data/site/pack/packer/start/friendly-snippets/" })
 

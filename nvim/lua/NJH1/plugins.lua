@@ -39,6 +39,9 @@ require('packer').startup(function(use)
       },
   }
 
+  -- friendly-snippets collection for use with LuaSnip
+  use { "rafamadriz/friendly-snippets" }
+
   use { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     run = function()
@@ -56,6 +59,7 @@ require('packer').startup(function(use)
   use 'tpope/vim-rhubarb'
   use 'tpope/vim-repeat'
   use 'lewis6991/gitsigns.nvim'
+  use 'kdheepak/lazygit.nvim'
 
   use 'nvim-lua/plenary.nvim'
   use 'lervag/vimtex'
@@ -77,7 +81,6 @@ require('packer').startup(function(use)
     }
   end
   }
-  use 'kdheepak/lazygit.nvim'
   -- COLOUR SCHEMES
   use 'rebelot/kanagawa.nvim'
   use 'EdenEast/nightfox.nvim'
