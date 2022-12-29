@@ -1,5 +1,17 @@
 -- Example snippet for Luasnip
 -- Place this in ${HOME}/.config/nvim/luasnip/all.lua
+
+local ls = require("luasnip")
+local s = ls.snippet
+local sn = ls.snippet_node
+local t = ls.text_node
+local i = ls.insert_node
+local f = ls.function_node
+local d = ls.dynamic_node
+local fmt = require("luasnip.extras.fmt").fmt
+local fmta = require("luasnip.extras.fmt").fmta
+local rep = require("luasnip.extras").rep
+
 return {
   -- A snippet that expands the trigger "hi" into the string "Hello, world!".
   require("luasnip").snippet(
@@ -13,4 +25,16 @@ return {
     { trig = "foo" },
     { t("Another snippet.") }
   ),
+
+  -- playing
+  s({
+      trig = ";a",
+      snippetType="autosnippet",
+      dscr="\alpha"
+    },
+    {
+      t("\\alpha"),
+    }
+  ),
 }
+

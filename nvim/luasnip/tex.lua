@@ -44,6 +44,13 @@ s("dm", {
 	t({ "\\[", "\t" }),
 	i(1),
 	t({ "", "\\]" }),
-}, { condition = tex.in_text })
+}, { condition = tex.in_text }),
 
+
+  -- playing
+  s({trig = ";b", snippetType="autosnippet", dscr="\beta"},
+    {
+      t("\\beta"),
+    }
+  ),
 }
