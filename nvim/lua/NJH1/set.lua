@@ -100,6 +100,20 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 )
 
 -- Change cwd to the location of the buffer in the current tabstop
+vim.cmd[[
+function! OnTabEnter(path)
+  if isdirectory(a:path)
+    let dirname = a:path
+  else
+    let dirname = fnamemodify(a:path, ":h")
+  endif
+  execute "tcd ". dirname
+endfunction()
+
+autocmd TabNewEntered * call OnTabEnter(expand("<amatch>"))
+]]
+-- Attempt to change above to lua - not right
+-- Change cwd to the location of the buffer in the current tabstop
 -- helper function -- can't work out how to change to lua yet
 --function OnTabEnter(path)
 --  if vim.fn.isdirectory("a:path") then
