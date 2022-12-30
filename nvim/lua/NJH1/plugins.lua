@@ -81,6 +81,8 @@ require('packer').startup(function(use)
     }
   end
   }
+
+  use 'akinsho/toggleterm.nvim'
   -- COLOUR SCHEMES
   use 'rebelot/kanagawa.nvim'
   use 'EdenEast/nightfox.nvim'

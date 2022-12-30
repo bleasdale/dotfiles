@@ -60,6 +60,8 @@ vim.opt.splitright = true
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.colorcolumn = "81"
+vim.opt.completeopt = { 'menuone', 'noselect', 'noinsert', 'preview' }
+vim.opt.shortmess = vim.opt.shortmess + { c = true }
 
 -- Relative line numbering
 local numtogGrp = vim.api.nvim_create_augroup("NumberToggle", { clear = true })
@@ -99,6 +101,18 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 }
 )
 
+-- Terminal buffer
+vim.cmd[[
+function! TerminalSettings()
+  setlocal nonumber
+  normal a
+endfunction
+augroup terminal
+  autocmd!
+  autocmd TermOpen * call TerminalSettings()
+augroup END
+]]
+
 -- Change cwd to the location of the buffer in the current tabstop
 vim.cmd[[
 function! OnTabEnter(path)
@@ -112,6 +126,7 @@ endfunction()
 
 autocmd TabNewEntered * call OnTabEnter(expand("<amatch>"))
 ]]
+
 -- Attempt to change above to lua - not right
 -- Change cwd to the location of the buffer in the current tabstop
 -- helper function -- can't work out how to change to lua yet

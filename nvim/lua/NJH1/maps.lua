@@ -13,6 +13,20 @@ local km = vim.keymap
 km.set("n", ";", ":", {desc = "Swap ; for :"})
 km.set("n", ":", ";", {desc = "Swap ; for :"})
 
+-- Terminal
+km.set("t", "<C-[>", "<C-\\><C-n>", { desc = "Exit terminal mode." })
+-- ToggleTerm
+vim.cmd[[
+autocmd TermEnter term://*toggleterm#*
+      \ tnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
+
+" By applying the mappings this way you can pass a count to your
+" mapping to open a specific window.
+" For example: 2<C-t> will open terminal 2
+nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
+inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
+]]
+
 -- source init.lua
 km.set("n", "<leader>sv", ":so ~/.config/nvim/init.lua<CR>", {silent = true, desc = "Source config shortcut."})
 

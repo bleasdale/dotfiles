@@ -13,6 +13,7 @@ cmp.setup {
     ['<C-d>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.close(),
     ['<CR>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
@@ -36,10 +37,28 @@ cmp.setup {
       end
     end, { 'i', 's' }),
   },
+  -- sources are the installed sources that can be used for suggestions
   sources = {
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+    { name = 'path' },
+    { name = 'buffer' },
+    { name = 'nvim_lua' },
     --{ name = 'ultisnips' },
+  },
+  -- add formating of the different sources
+    formatting = {
+      fields = {'menu', 'abbr', 'kind'},
+      format = function(entry, item)
+          local menu_icon ={
+              nvim_lsp = 'λ',
+              luasnip = '⋗',
+              buffer = 'b',
+              path = 'p'
+          }
+          item.menu = menu_icon[entry.source.name]
+          return item
+      end,
   },
   {
     { name = 'buffer' },
