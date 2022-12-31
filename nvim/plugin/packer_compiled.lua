@@ -169,6 +169,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\njhae\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\monokai.nvim",
     url = "https://github.com/tanvirtin/monokai.nvim"
   },
+  ["neo-tree.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\njhae\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neo-tree.nvim",
+    url = "https://github.com/nvim-neo-tree/neo-tree.nvim"
+  },
   ["neodev.nvim"] = {
     loaded = true,
     path = "C:\\Users\\njhae\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neodev.nvim",
@@ -183,6 +188,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\njhae\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nightfox.nvim",
     url = "https://github.com/EdenEast/nightfox.nvim"
+  },
+  ["nui.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\njhae\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nui.nvim",
+    url = "https://github.com/MunifTanjim/nui.nvim"
   },
   nvim = {
     loaded = true,
@@ -203,6 +213,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\njhae\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-surround",
     url = "https://github.com/kylechui/nvim-surround"
+  },
+  ["nvim-tree.lua"] = {
+    loaded = true,
+    path = "C:\\Users\\njhae\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-tree.lua",
+    url = "https://github.com/nvim-tree/nvim-tree.lua"
   },
   ["nvim-treesitter"] = {
     loaded = true,
