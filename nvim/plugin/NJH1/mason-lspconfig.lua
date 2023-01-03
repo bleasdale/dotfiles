@@ -55,7 +55,6 @@ local servers = {
    texlab = {},
    gopls = {},
    pyright = {},
-   rust_analyzer = {},
    tsserver = {},
    marksman = {},
    sqlls = {},

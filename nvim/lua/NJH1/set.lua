@@ -57,16 +57,24 @@ vim.opt.showtabline = 2
 vim.opt.termguicolors = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
-vim.opt.number = true
-vim.opt.relativenumber = true
+vim.wo.relativenumber = true
+vim.wo.number = true
 vim.opt.colorcolumn = "81"
 vim.opt.completeopt = { 'menuone', 'noselect', 'noinsert', 'preview' }
 vim.opt.shortmess = vim.opt.shortmess + { c = true }
 
 -- Relative line numbering
+vim.cmd[[
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave,WinEnter * if &nu && mode() != "i" | set rnu   | endif
+  autocmd BufLeave,FocusLost,InsertEnter,WinLeave   * if &nu                  | set nornu | endif
+augroup END
+]]
+
 local numtogGrp = vim.api.nvim_create_augroup("NumberToggle", { clear = true })
 vim.api.nvim_create_autocmd(
-  { "BufEnter", "InsertLeave", "FocusGained"},
+  { "BufEnter", "InsertLeave", "FocusGained", "WinEnter"},
   { pattern = "*",
     --command = "set relativenumber",  -- if callback, vim.api.nvim_buf_set_option(0,relativenumber,true) ?
     callback = function()
@@ -78,7 +86,7 @@ vim.api.nvim_create_autocmd(
 )
 
 vim.api.nvim_create_autocmd(
-  { "BufLeave", "InsertEnter", "FocusLost"},
+  { "BufLeave", "InsertEnter", "FocusLost", "WinLeave"},
   { pattern = "*",
     --command = "set norelativenumber",
     callback = function()
