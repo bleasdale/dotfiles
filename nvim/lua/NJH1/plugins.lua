@@ -33,6 +33,7 @@ require('packer').startup(function(use)
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-path",
+      "hrsh7th/cmp-cmdline",
       "hrsh7th/cmp-nvim-lua",
       "L3MON4D3/LuaSnip",
       "saadparwaiz1/cmp_luasnip"
@@ -73,15 +74,8 @@ require('packer').startup(function(use)
   use 'BurntSushi/ripgrep'
   use 'kyazdani42/nvim-web-devicons'
   use 'kylechui/nvim-surround'
-  use { "folke/which-key.nvim",
-    config = function()
-    require("which-key").setup {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-    }
-  end
-  }
-
+  use 'folke/which-key.nvim'
+  use 'sudormrfbin/cheatsheet.nvim'
   use 'akinsho/toggleterm.nvim'
   -- COLOUR SCHEMES
   use 'rebelot/kanagawa.nvim'

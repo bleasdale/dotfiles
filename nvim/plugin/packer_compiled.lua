@@ -79,10 +79,20 @@ _G.packer_plugins = {
     path = "C:\\Users\\njhae\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["cheatsheet.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\njhae\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cheatsheet.nvim",
+    url = "https://github.com/sudormrfbin/cheatsheet.nvim"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "C:\\Users\\njhae\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-buffer",
     url = "https://github.com/hrsh7th/cmp-buffer"
+  },
+  ["cmp-cmdline"] = {
+    loaded = true,
+    path = "C:\\Users\\njhae\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp-cmdline",
+    url = "https://github.com/hrsh7th/cmp-cmdline"
   },
   ["cmp-nvim-lsp"] = {
     loaded = true,
@@ -325,7 +335,6 @@ _G.packer_plugins = {
     url = "https://github.com/lervag/vimtex"
   },
   ["which-key.nvim"] = {
-    config = { "\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\0" },
     loaded = true,
     path = "C:\\Users\\njhae\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\which-key.nvim",
     url = "https://github.com/folke/which-key.nvim"
@@ -333,10 +342,6 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: which-key.nvim
-time([[Config for which-key.nvim]], true)
-try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14which-key\frequire\0", "config", "which-key.nvim")
-time([[Config for which-key.nvim]], false)
 -- Conditional loads
 time([[Conditional loading of telescope-fzf-native.nvim]], true)
   require("packer.load")({"telescope-fzf-native.nvim"}, {}, _G.packer_plugins)
