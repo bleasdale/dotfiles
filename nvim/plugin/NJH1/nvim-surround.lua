@@ -1,7 +1,7 @@
 -- nvim-surround.lua Configuration
 --
 
-require('nvim-surround').setup({
+require("nvim-surround").setup({
   -- Configuration here
   surrounds = { -- my attempt at maths, better in vimtex or snippet
     -- LaTeX inline maths environment
@@ -11,17 +11,17 @@ require('nvim-surround').setup({
       delete = "(\\%()().-(\\%))()",
       change = {
         target = "($)().-($)()",
-        replacement = {"\\(", "\\)"},
+        replacement = { "\\(", "\\)" },
       },
     },
     -- LaTeX display maths environment
     ["M"] = {
-    add = { "\\[", "\\]" },
+      add = { "\\[", "\\]" },
       delete = "(\\%[)().-(\\%])()",
       change = {
         target = "($$)().-($$)()",
-        replacement = {"\\[", "\\]"},
-      }
-    }
-  }
+        replacement = { "\\[", "\\]" },
+      },
+    },
+  },
 })

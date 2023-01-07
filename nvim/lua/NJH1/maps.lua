@@ -10,13 +10,13 @@ vim.g.maplocalleader = "\\"
 local km = vim.keymap
 
 -- Swap ; and : for faster command mode
-km.set("n", ";", ":", {desc = "Swap ; for :"})
-km.set("n", ":", ";", {desc = "Swap ; for :"})
+km.set("n", ";", ":", { desc = "Swap ; for :" })
+km.set("n", ":", ";", { desc = "Swap ; for :" })
 
 -- Terminal
 km.set("t", "<C-[>", "<C-\\><C-n>", { desc = "Exit terminal mode." })
 -- ToggleTerm
-vim.cmd[[
+vim.cmd([[
 autocmd TermEnter term://*toggleterm#*
       \ tnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
 
@@ -25,50 +25,64 @@ autocmd TermEnter term://*toggleterm#*
 " For example: 2<C-t> will open terminal 2
 nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
 inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
-]]
+]])
 
 -- source init.lua
-km.set("n", "<leader>sv", ":so ~/.config/nvim/init.lua<CR>", {silent = true, desc = "Source config shortcut."})
+km.set("n", "<leader>sv", ":so ~/.config/nvim/init.lua<CR>", { silent = true, desc = "Source config shortcut." })
 
 -- open init.lua in a new buffer, vertical split
-km.set("n", "<leader>ev", ":vsplit ~/.config/nvim/init.lua<CR>", {silent = true, desc = "Edit config shortcut."})
+km.set("n", "<leader>ev", ":vsplit ~/.config/nvim/init.lua<CR>", { silent = true, desc = "Edit config shortcut." })
 
 -- Packer update
-km.set("n", "<leader>u", ":PackerSync<CR>", {desc = "Packer Update (Sync)" })
+km.set("n", "<leader>u", ":PackerSync<CR>", { desc = "Packer Update (Sync)" })
 
 -- 'cd' to the dir in which the current buffer is, but only for the current window
-km.set("n", "<leader>cd", ":lcd %:h<CR>", { desc = "Change the cwd to the location of the current buffer, but only for the current buffer." })
+km.set(
+	"n",
+	"<leader>cd",
+	":lcd %:h<CR>",
+	{ desc = "Change the cwd to the location of the current buffer, but only for the current buffer." }
+)
 
 -- resize window
-km.set("n", "<leader><UP>", ":resize +5<CR>", {silent = true, desc = "Increase vertical window size."})
-km.set("n", "<leader><DOWN>", ":resize -5<CR>", {silent = true, desc = "Decrease vertical window size."})
-km.set("n", "<leader><RIGHT>", ":vertical resize +5<CR>", {silent = true, desc = "Increase window width."})
-km.set("n", "<leader><LEFT>", ":vertical resize -5<CR>", {silent = true, desc = "Decrease window width."})
+km.set("n", "<leader><UP>", ":resize +5<CR>", { silent = true, desc = "Increase vertical window size." })
+km.set("n", "<leader><DOWN>", ":resize -5<CR>", { silent = true, desc = "Decrease vertical window size." })
+km.set("n", "<leader><RIGHT>", ":vertical resize +5<CR>", { silent = true, desc = "Increase window width." })
+km.set("n", "<leader><LEFT>", ":vertical resize -5<CR>", { silent = true, desc = "Decrease window width." })
 
 -- movement between windows
-km.set("n", "<leader>h", ":wincmd h<CR>", {desc = "Move focus to window on the left." })
-km.set("n", "<leader>j", ":wincmd j<CR>", {desc = "Move focus to window below" })
-km.set("n", "<leader>l", ":wincmd l<CR>", {desc = "Move focus to window on the right." })
-km.set("n", "<leader>k", ":wincmd k<CR>", {desc = "Move focus to window above." })
-
+km.set("n", "<leader>h", ":wincmd h<CR>", { desc = "Move focus to window on the left." })
+km.set("n", "<leader>j", ":wincmd j<CR>", { desc = "Move focus to window below" })
+km.set("n", "<leader>l", ":wincmd l<CR>", { desc = "Move focus to window on the right." })
+km.set("n", "<leader>k", ":wincmd k<CR>", { desc = "Move focus to window above." })
 
 -- movement while in insert and command modes
-km.set("i", "<C-h>", "<LEFT>", {desc = "Move left in insert mode." })
-km.set("i", "<C-j>", "DOWN", {desc = "Move down in insert mode." })
-km.set("i", "<C-l>", "RIGHT", {desc = "Move right in insert mode." })
-km.set("i", "<C-k>", "UP", {desc = "Move up in insert mode." })
-km.set("c", "<C-h>", "<LEFT>", {desc = "Move left in command mode." })
-km.set("c", "<C-j>", "DOWN", {desc = "Move down in command mode." })
-km.set("c", "<C-l>", "RIGHT", {desc = "Move right in command mode." })
-km.set("c", "<C-k>", "UP", {desc = "Move up in command mode." })
+km.set("i", "<C-h>", "<LEFT>", { desc = "Move left in insert mode." })
+km.set("i", "<C-j>", "DOWN", { desc = "Move down in insert mode." })
+km.set("i", "<C-l>", "RIGHT", { desc = "Move right in insert mode." })
+km.set("i", "<C-k>", "UP", { desc = "Move up in insert mode." })
+km.set("c", "<C-h>", "<LEFT>", { desc = "Move left in command mode." })
+km.set("c", "<C-j>", "DOWN", { desc = "Move down in command mode." })
+km.set("c", "<C-l>", "RIGHT", { desc = "Move right in command mode." })
+km.set("c", "<C-k>", "UP", { desc = "Move up in command mode." })
 
 -- buffers
 km.set("n", "<leader>bn", "<cmd>enew<CR>", { desc = "New buffer." })
-km.set("n", "<leader>n", ":bn<CR>", {desc = "Show the next buffer." })
-km.set("n", "<leader>p", ":bp<CR>", {desc = "Show the previous buffer." })
-require("delete_buffer_not_window")     -- function to delete the current buffer
-km.set('n', "<leader>zb", "<cmd>lua buf_kill(0)<CR>", {silent = true, desc = "Delete the buffer but leave the window open." })
-km.set('n', "<leader>zbb", "<cmd>lua buf_kill(0, true)<CR>", {silent = true, desc = "Force delete the buffer but leave the window open." })
+km.set("n", "<leader>n", ":bn<CR>", { desc = "Show the next buffer." })
+km.set("n", "<leader>p", ":bp<CR>", { desc = "Show the previous buffer." })
+require("delete_buffer_not_window") -- function to delete the current buffer
+km.set(
+	"n",
+	"<leader>zb",
+	"<cmd>lua buf_kill(0)<CR>",
+	{ silent = true, desc = "Delete the buffer but leave the window open." }
+)
+km.set(
+	"n",
+	"<leader>zbb",
+	"<cmd>lua buf_kill(0, true)<CR>",
+	{ silent = true, desc = "Force delete the buffer but leave the window open." }
+)
 
 -- move lines around
 km.set("n", "<c-j>", ":m .+1<CR>==", { silent = true, desc = "Bubble line down" })
@@ -102,30 +116,29 @@ km.set("n", "<leader>lg", ":LazyGit<CR>", { desc = "Open a lazygit floating wind
 
 -- telescope related maps
 -- See `:help telescope.builtin`
-km.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
-km.set('n', '<leader><space>', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
-km.set('n', '<leader>/',
-  function()
-  -- You can pass additional configuration to telescope to change theme, layout, etc.
-  require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
-    winblend = 10,
-    previewer = false,
-  })
-  end,
-  { desc = '[/] Fuzzily search in current buffer]' }
-)
+km.set("n", "<leader>?", require("telescope.builtin").oldfiles, { desc = "[?] Find recently opened files" })
+km.set("n", "<leader><space>", require("telescope.builtin").buffers, { desc = "[ ] Find existing buffers" })
+km.set("n", "<leader>/", function()
+	-- You can pass additional configuration to telescope to change theme, layout, etc.
+	require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+		winblend = 10,
+		previewer = false,
+	}))
+end, { desc = "[/] Fuzzily search in current buffer]" })
 
-km.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
-km.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
-km.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
-km.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
-km.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+km.set("n", "<leader>sf", require("telescope.builtin").find_files, { desc = "[S]earch [F]iles" })
+km.set("n", "<leader>sh", require("telescope.builtin").help_tags, { desc = "[S]earch [H]elp" })
+km.set("n", "<leader>sw", require("telescope.builtin").grep_string, { desc = "[S]earch current [W]ord" })
+km.set("n", "<leader>sg", require("telescope.builtin").live_grep, { desc = "[S]earch by [G]rep" })
+km.set("n", "<leader>sd", require("telescope.builtin").diagnostics, { desc = "[S]earch [D]iagnostics" })
 
 -- Telescope file browser
-km.set('n', '<leader>fb', function() require("telescope").extensions.file_browser.file_browser() end, { desc = "Open Telescope file browser" })
+km.set("n", "<leader>fb", function()
+	require("telescope").extensions.file_browser.file_browser()
+end, { desc = "Open Telescope file browser" })
 
 -- Luasnip
-vim.cmd[[
+vim.cmd([[
 " Use Tab to expand and jump through snippets
 imap <silent><expr> <Tab> luasnip#expand_or_jumpable() ? '<Plug>luasnip-expand-or-jump' : '<Tab>' 
 smap <silent><expr> <Tab> luasnip#jumpable(1) ? '<Plug>luasnip-jump-next' : '<Tab>'
@@ -137,5 +150,12 @@ smap <silent><expr> <S-Tab> luasnip#jumpable(-1) ? '<Plug>luasnip-jump-prev' : '
 " Cycle forward through choice nodes with Control-f (for example)
 imap <silent><expr> <C-f> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-f>'
 smap <silent><expr> <C-f> luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-f>'
-]]
+]])
 
+-- stylua-nvim mapping to format lua files
+km.set(
+	"n",
+	"<leader>st",
+	require("stylua-nvim").format_file,
+	{ noremap = true, silent = true, desc = "Format lua file with Stylua." }
+)

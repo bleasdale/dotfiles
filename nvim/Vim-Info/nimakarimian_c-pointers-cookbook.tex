@@ -1,0 +1,219 @@
+\documentclass[10pt,a4paper]{article}
+
+% Packages
+\usepackage{fancyhdr}           % For header and footer
+\usepackage{multicol}           % Allows multicols in tables
+\usepackage{tabularx}           % Intelligent column widths
+\usepackage{tabulary}           % Used in header and footer
+\usepackage{hhline}             % Border under tables
+\usepackage{graphicx}           % For images
+\usepackage{xcolor}             % For hex colours
+%\usepackage[utf8x]{inputenc}    % For unicode character support
+\usepackage[T1]{fontenc}        % Without this we get weird character replacements
+\usepackage{colortbl}           % For coloured tables
+\usepackage{setspace}           % For line height
+\usepackage{lastpage}           % Needed for total page number
+\usepackage{seqsplit}           % Splits long words.
+%\usepackage{opensans}          % Can't make this work so far. Shame. Would be lovely.
+\usepackage[normalem]{ulem}     % For underlining links
+% Most of the following are not required for the majority
+% of cheat sheets but are needed for some symbol support.
+\usepackage{amsmath}            % Symbols
+\usepackage{MnSymbol}           % Symbols
+\usepackage{wasysym}            % Symbols
+%\usepackage[english,german,french,spanish,italian]{babel}              % Languages
+
+% Document Info
+\author{Nima (nimakarimian)}
+\pdfinfo{
+  /Title (c-pointers-cookbook.pdf)
+  /Creator (Cheatography)
+  /Author (Nima (nimakarimian))
+  /Subject (C++ Pointers cookbook Cheat Sheet)
+}
+
+% Lengths and widths
+\addtolength{\textwidth}{6cm}
+\addtolength{\textheight}{-1cm}
+\addtolength{\hoffset}{-3cm}
+\addtolength{\voffset}{-2cm}
+\setlength{\tabcolsep}{0.2cm} % Space between columns
+\setlength{\headsep}{-12pt} % Reduce space between header and content
+\setlength{\headheight}{85pt} % If less, LaTeX automatically increases it
+\renewcommand{\footrulewidth}{0pt} % Remove footer line
+\renewcommand{\headrulewidth}{0pt} % Remove header line
+\renewcommand{\seqinsert}{\ifmmode\allowbreak\else\-\fi} % Hyphens in seqsplit
+% This two commands together give roughly
+% the right line height in the tables
+\renewcommand{\arraystretch}{1.3}
+\onehalfspacing
+
+% Commands
+\newcommand{\SetRowColor}[1]{\noalign{\gdef\RowColorName{#1}}\rowcolor{\RowColorName}} % Shortcut for row colour
+\newcommand{\mymulticolumn}[3]{\multicolumn{#1}{>{\columncolor{\RowColorName}}#2}{#3}} % For coloured multi-cols
+\newcolumntype{x}[1]{>{\raggedright}p{#1}} % New column types for ragged-right paragraph columns
+\newcommand{\tn}{\tabularnewline} % Required as custom column type in use
+
+% Font and Colours
+\definecolor{HeadBackground}{HTML}{333333}
+\definecolor{FootBackground}{HTML}{666666}
+\definecolor{TextColor}{HTML}{333333}
+\definecolor{DarkBackground}{HTML}{C92C3C}
+\definecolor{LightBackground}{HTML}{FBF1F2}
+\renewcommand{\familydefault}{\sfdefault}
+\color{TextColor}
+
+% Header and Footer
+\pagestyle{fancy}
+\fancyhead{} % Set header to blank
+\fancyfoot{} % Set footer to blank
+\fancyhead[L]{
+\noindent
+\begin{multicols}{3}
+\begin{tabulary}{5.8cm}{C}
+    \SetRowColor{DarkBackground}
+    \vspace{-7pt}
+    {\parbox{\dimexpr\textwidth-2\fboxsep\relax}{\noindent
+        \hspace*{-6pt}\includegraphics[width=5.8cm]{/web/www.cheatography.com/public/images/cheatography_logo.pdf}}
+    }
+\end{tabulary}
+\columnbreak
+\begin{tabulary}{11cm}{L}
+    \vspace{-2pt}\large{\bf{\textcolor{DarkBackground}{\textrm{C++ Pointers cookbook Cheat Sheet}}}} \\
+    \normalsize{by \textcolor{DarkBackground}{Nima (nimakarimian)} via \textcolor{DarkBackground}{\uline{cheatography.com/113429/cs/21694/}}}
+\end{tabulary}
+\end{multicols}}
+
+\fancyfoot[L]{ \footnotesize
+\noindent
+\begin{multicols}{3}
+\begin{tabulary}{5.8cm}{LL}
+  \SetRowColor{FootBackground}
+  \mymulticolumn{2}{p{5.377cm}}{\bf\textcolor{white}{Cheatographer}}  \\
+  \vspace{-2pt}Nima (nimakarimian) \\
+  \uline{cheatography.com/nimakarimian} \\
+  \end{tabulary}
+\vfill
+\columnbreak
+\begin{tabulary}{5.8cm}{L}
+  \SetRowColor{FootBackground}
+  \mymulticolumn{1}{p{5.377cm}}{\bf\textcolor{white}{Cheat Sheet}}  \\
+   \vspace{-2pt}Published 29th January, 2020.\\
+   Updated 29th January, 2020.\\
+   Page {\thepage} of \pageref{LastPage}.
+\end{tabulary}
+\vfill
+\columnbreak
+\begin{tabulary}{5.8cm}{L}
+  \SetRowColor{FootBackground}
+  \mymulticolumn{1}{p{5.377cm}}{\bf\textcolor{white}{Sponsor}}  \\
+  \SetRowColor{white}
+  \vspace{-5pt}
+  %\includegraphics[width=48px,height=48px]{dave.jpeg}
+  Measure your website readability!\\
+  www.readability-score.com
+\end{tabulary}
+\end{multicols}}
+
+
+
+
+\begin{document}
+\raggedright
+\raggedcolumns
+
+% Set font size to small. Switch to any value
+% from this page to resize cheat sheet text:
+% www.emerson.emory.edu/services/latex/latex_169.html
+\footnotesize % Small font.
+
+\begin{multicols*}{4}
+
+\begin{tabularx}{3.833cm}{X}
+\SetRowColor{DarkBackground}
+\mymulticolumn{1}{x{3.833cm}}{\bf\textcolor{white}{Array of Pointers}}  \tn
+% Row 0
+\SetRowColor{LightBackground}
+\mymulticolumn{1}{x{3.833cm}}{int *ptr{[}arraysize{]} = array of pointers, pointing to int} \tn 
+% Row Count 2 (+ 2)
+\hhline{>{\arrayrulecolor{DarkBackground}}-}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{3.833cm}{X}
+\SetRowColor{DarkBackground}
+\mymulticolumn{1}{x{3.833cm}}{\bf\textcolor{white}{Pointer to function}}  \tn
+\SetRowColor{LightBackground}
+\mymulticolumn{1}{x{3.833cm}}{int ({\emph{FuncPTR)(int a,int b); //called funcptr is a pointer to function \newline // actually is used as a parameter of another func and can pass any func to the desired func as a parameter with this method \newline int func1(int); \newline int func2(int); \newline int func3(int (}}FuncPTR)(int)); \newline now we can pass func1 or func2 to func3 ;} \tn 
+\hhline{>{\arrayrulecolor{DarkBackground}}-}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{3.833cm}{X}
+\SetRowColor{DarkBackground}
+\mymulticolumn{1}{x{3.833cm}}{\bf\textcolor{white}{Array of Pointers to functions}}  \tn
+\SetRowColor{LightBackground}
+\mymulticolumn{1}{x{3.833cm}}{void (*f{[}3{]})(int)=\{function1,function2,function3\}; \newline // f is an array of pointers , pointing to functions of type void which all of them take one parameter of type int .} \tn 
+\hhline{>{\arrayrulecolor{DarkBackground}}-}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{3.833cm}{X}
+\SetRowColor{DarkBackground}
+\mymulticolumn{1}{x{3.833cm}}{\bf\textcolor{white}{Pointer vs array}}  \tn
+\SetRowColor{LightBackground}
+\mymulticolumn{1}{x{3.833cm}}{int b{[}10{]}; int {\emph{bptr; \newline bptr=b; OR bptr=\&b{[}0{]}; \newline }}(bptr+3) // shows the value of b{[}3{]} \newline  bptr+3 // points to \&b{[}3{]}  \newline //an array can be used like a pointer too -\textgreater{} *(b+3)=value of b{[}3{]}  \newline //pointer to an array can be used like an array -\textgreater{} bptr{[}3{]} = value of b{[}3{]}} \tn 
+\hhline{>{\arrayrulecolor{DarkBackground}}-}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{3.833cm}{X}
+\SetRowColor{DarkBackground}
+\mymulticolumn{1}{x{3.833cm}}{\bf\textcolor{white}{NULL pointer}}  \tn
+\SetRowColor{LightBackground}
+\mymulticolumn{1}{x{3.833cm}}{int  *ptr = NULL; //The value of ptr is 0 \newline if(ptr)     // succeeds if p is not null \newline if(!ptr)    // succeeds if p is null} \tn 
+\hhline{>{\arrayrulecolor{DarkBackground}}-}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{3.833cm}{X}
+\SetRowColor{DarkBackground}
+\mymulticolumn{1}{x{3.833cm}}{\bf\textcolor{white}{passing pointers to functions}}  \tn
+\SetRowColor{LightBackground}
+\mymulticolumn{1}{x{3.833cm}}{{\bf{{\emph{WHEN PASSING ARGUMENTS}}}} \newline    unsigned long sec;        \newline    getSeconds( \&sec ); \newline {\bf{{\emph{IN FUNCTION HEADER}}}} \newline void getSeconds(unsigned long *par)} \tn 
+\hhline{>{\arrayrulecolor{DarkBackground}}-}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{3.833cm}{X}
+\SetRowColor{DarkBackground}
+\mymulticolumn{1}{x{3.833cm}}{\bf\textcolor{white}{Pointer to pointer}}  \tn
+\SetRowColor{LightBackground}
+\mymulticolumn{1}{x{3.833cm}}{A pointer to a pointer is a form of multiple indirection or a chain of pointers  \newline    int  var; \newline    int  {\emph{ptr; \newline    int  }}*pptr; \newline    var = 3000; \newline    ptr = \&var; // take the address of var \newline    pptr = \&ptr;// take the address of ptr using address of operator \&} \tn 
+\hhline{>{\arrayrulecolor{DarkBackground}}-}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{3.833cm}{X}
+\SetRowColor{DarkBackground}
+\mymulticolumn{1}{x{3.833cm}}{\bf\textcolor{white}{Return pointer from functions}}  \tn
+\SetRowColor{LightBackground}
+\mymulticolumn{1}{x{3.833cm}}{int {\emph{ getRandom( ) \{ \newline    static int  r{[}10{]}; \newline    return r; \newline \} \newline // main function to call above defined function. \newline int main () \{ \newline    int }}p; \newline    p = getRandom(); \newline    \}} \tn 
+\hhline{>{\arrayrulecolor{DarkBackground}}-}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+\begin{tabularx}{3.833cm}{X}
+\SetRowColor{DarkBackground}
+\mymulticolumn{1}{x{3.833cm}}{\bf\textcolor{white}{Array of strings}}  \tn
+\SetRowColor{LightBackground}
+\mymulticolumn{1}{x{3.833cm}}{char *color=\{"red","blue","yellow','green"\};  \newline //color is an array of pointers , pointing to the first character of each string} \tn 
+\hhline{>{\arrayrulecolor{DarkBackground}}-}
+\end{tabularx}
+\par\addvspace{1.3em}
+
+
+% That's all folks
+\end{multicols*}
+
+\end{document}
