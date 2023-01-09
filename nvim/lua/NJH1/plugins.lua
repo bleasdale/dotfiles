@@ -101,6 +101,7 @@ require("packer").startup(function(use)
 
 	-- Telescope-file-browser
 	use({ "nvim-telescope/telescope-file-browser.nvim" })
+  use("xiyaowong/telescope-emoji.nvim")   -- telescope emoji picker
 
 	use({ "nvim-tree/nvim-tree.lua", requires = {
 		"nvim-tree/nvim-web-devicons",

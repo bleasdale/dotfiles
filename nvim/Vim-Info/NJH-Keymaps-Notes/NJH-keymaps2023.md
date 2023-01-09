@@ -60,8 +60,7 @@ nvim-web-devicons
 neo-tree.nvim
 nvim-tree.lua
 plenary.nvim
-nvim-web-devicons
 MunifTanjim/nui.nvim
 ckipp01/stylua-nvim
 
-
+## Keymaps

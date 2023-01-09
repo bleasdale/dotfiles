@@ -38,10 +38,10 @@ km.set("n", "<leader>u", ":PackerSync<CR>", { desc = "Packer Update (Sync)" })
 
 -- 'cd' to the dir in which the current buffer is, but only for the current window
 km.set(
-	"n",
-	"<leader>cd",
-	":lcd %:h<CR>",
-	{ desc = "Change the cwd to the location of the current buffer, but only for the current buffer." }
+  "n",
+  "<leader>cd",
+  ":lcd %:h<CR>",
+  { desc = "Change the cwd to the location of the current buffer, but only for the current buffer." }
 )
 
 -- resize window
@@ -72,16 +72,16 @@ km.set("n", "<leader>n", ":bn<CR>", { desc = "Show the next buffer." })
 km.set("n", "<leader>p", ":bp<CR>", { desc = "Show the previous buffer." })
 require("delete_buffer_not_window") -- function to delete the current buffer
 km.set(
-	"n",
-	"<leader>zb",
-	"<cmd>lua buf_kill(0)<CR>",
-	{ silent = true, desc = "Delete the buffer but leave the window open." }
+  "n",
+  "<leader>zb",
+  "<cmd>lua buf_kill(0)<CR>",
+  { silent = true, desc = "Delete the buffer but leave the window open." }
 )
 km.set(
-	"n",
-	"<leader>zbb",
-	"<cmd>lua buf_kill(0, true)<CR>",
-	{ silent = true, desc = "Force delete the buffer but leave the window open." }
+  "n",
+  "<leader>zbb",
+  "<cmd>lua buf_kill(0, true)<CR>",
+  { silent = true, desc = "Force delete the buffer but leave the window open." }
 )
 
 -- move lines around
@@ -119,11 +119,11 @@ km.set("n", "<leader>lg", ":LazyGit<CR>", { desc = "Open a lazygit floating wind
 km.set("n", "<leader>?", require("telescope.builtin").oldfiles, { desc = "[?] Find recently opened files" })
 km.set("n", "<leader><space>", require("telescope.builtin").buffers, { desc = "[ ] Find existing buffers" })
 km.set("n", "<leader>/", function()
-	-- You can pass additional configuration to telescope to change theme, layout, etc.
-	require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
-		winblend = 10,
-		previewer = false,
-	}))
+  -- You can pass additional configuration to telescope to change theme, layout, etc.
+  require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+    winblend = 10,
+    previewer = false,
+  }))
 end, { desc = "[/] Fuzzily search in current buffer]" })
 
 km.set("n", "<leader>sf", require("telescope.builtin").find_files, { desc = "[S]earch [F]iles" })
@@ -134,7 +134,7 @@ km.set("n", "<leader>sd", require("telescope.builtin").diagnostics, { desc = "[S
 
 -- Telescope file browser
 km.set("n", "<leader>fb", function()
-	require("telescope").extensions.file_browser.file_browser()
+  require("telescope").extensions.file_browser.file_browser()
 end, { desc = "Open Telescope file browser" })
 
 -- Luasnip
@@ -154,8 +154,12 @@ smap <silent><expr> <C-f> luasnip#choice_active() ? '<Plug>luasnip-next-choice' 
 
 -- stylua-nvim mapping to format lua files
 km.set(
-	"n",
-	"<leader>st",
-	require("stylua-nvim").format_file,
-	{ noremap = true, silent = true, desc = "Format lua file with Stylua." }
+  "n",
+  "<leader>st",
+  require("stylua-nvim").format_file,
+  { noremap = true, silent = true, desc = "Format lua file with Stylua." }
 )
+
+-- Insert mode map to escape out of insert mode, type undo and reenter insert mode
+km.set("i", "<C-U>", "<ESC>ui", { desc = "From insert mode, exit to normal, undo, reenter insert mode." })
+

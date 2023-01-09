@@ -8,7 +8,7 @@ local actions = require "telescope.actions"
 require('telescope').setup {
   defaults = {
 
-    prompt_prefix = "  ",
+    prompt_prefix = "🔴  ",
     selection_caret = " ",
     path_display = { "smart" },
 
@@ -91,9 +91,17 @@ require('telescope').setup {
         },
       },
     },
+    emoji = {
+      action = function(emoji)
+        -- insert emoji when picked
+        vim.api.nvim_put({ emoji.value }, 'c', false, true)
+      end,
+    }
   },
 }
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
 require('telescope').load_extension "file_browser"
+require("telescope").load_extension "emoji"
+

@@ -276,6 +276,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\njhae\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\tabby.nvim",
     url = "https://github.com/nanozuki/tabby.nvim"
   },
+  ["telescope-emoji.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\njhae\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\telescope-emoji.nvim",
+    url = "https://github.com/xiyaowong/telescope-emoji.nvim"
+  },
   ["telescope-file-browser.nvim"] = {
     loaded = true,
     path = "C:\\Users\\njhae\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\telescope-file-browser.nvim",
