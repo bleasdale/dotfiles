@@ -102,6 +102,6 @@ require('telescope').setup {
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
-require('telescope').load_extension "file_browser"
-require("telescope").load_extension "emoji"
+pcall(require('telescope').load_extension "file_browser")
+pcall(require("telescope").load_extension "emoji")
 
