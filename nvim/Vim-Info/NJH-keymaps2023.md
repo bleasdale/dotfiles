@@ -1,6 +1,11 @@
 # Plugins and keymaps for neovim
 
 ### NJHaes - 07/01/2023
+Aim - rationalise my keymaps.
+Choose one file manager plugin.
+Reduce the number of plugins.
+Lazyload some plugins.
+Move all snippets to one source.
 
 ## Installed plugins
 
