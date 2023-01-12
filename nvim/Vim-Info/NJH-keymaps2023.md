@@ -9,10 +9,14 @@ Move all snippets to one source.
 
 ## Installed plugins
 
-Packer -        plugin package manager
+# Packer -        plugin package manager
+  <Ldr>u :PackerSync
 nvim-lspconfig
 mason.nvim
-mason-lspconfig
+# mason-lspconfig
+  Normal
+  <Ldr>rn, <Ldr>ca, gd, gr, gI, <Ldr>D, <Ldr>ds, <Ldr>ws, K, C-k, gD,
+  <Ldr>wa, <Ldr>wr, <Ldr>wl, 
 j-hui/fidget.nvim
 folke/neodev.nvim
 hrsh7th/nvim-cmp
@@ -25,7 +29,7 @@ hrsh7th/cmp-nvim-lua",
   <Tab>, <S-Tab>, C-f
 saadparwaiz1/cmp_luasnip",
 rafamadriz/friendly-snippets
-nvim-treesitter
+# nvim-treesitter
 nvim-treesitter-textobjects
 tpope/vim-fugitive
 tpope/vim-repeat
@@ -72,7 +76,8 @@ telescope-fzf-native.vim (requires fzf)
 # telescope-file-browser
   <Ldr>fb,
 nvim-web-devicons
-neo-tree.nvim
+# neo-tree.nvim
+  \ (opens neo-tree) - current mapping, Over-ruled elswhere? Doesn't work.
 nvim-tree.lua
 plenary.nvim
 MunifTanjim/nui.nvim
