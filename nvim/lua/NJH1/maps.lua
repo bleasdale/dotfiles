@@ -28,7 +28,7 @@ inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
 ]])
 
 -- source init.lua
-km.set("n", "<leader>sv", ":so ~/.config/nvim/init.lua<CR>", { silent = true, desc = "Source config shortcut." })
+km.set("n", "<leader>sv", "<cmd>lua ReloadConfig()<CR>", { silent = false, desc = "Source init.lua & reload all modules." })
 
 -- open init.lua in a new buffer, vertical split
 km.set("n", "<leader>ev", ":vsplit ~/.config/nvim/init.lua<CR>", { silent = true, desc = "Edit config shortcut." })
