@@ -163,3 +163,9 @@ km.set(
 -- Insert mode map to escape out of insert mode, type undo and reenter insert mode
 km.set("i", "<C-U>", "<ESC>ui", { desc = "From insert mode, exit to normal, undo, reenter insert mode." })
 
+-- window-picker
+km.set("n", "<leader>g", function()
+    local picked_window_id = require('window-picker').pick_window() or vim.api.nvim_get_current_win()
+    vim.api.nvim_set_current_win(picked_window_id)
+end, { desc = "Pick a window" })
+

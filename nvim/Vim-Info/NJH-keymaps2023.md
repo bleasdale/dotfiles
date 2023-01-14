@@ -51,7 +51,8 @@ kyazdani42/nvim-web-devicons
 kylechui/nvim-surround
 folke/which-key.nvim
 sudormrfbin/cheatsheet.nvim
-akinsho/toggleterm.nvim
+# akinsho/toggleterm.nvim
+  C-\,
 rebelot/kanagawa.nvim
 EdenEast/nightfox.nvim
 ellisonleao/gruvbox.nvim

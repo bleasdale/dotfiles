@@ -90,7 +90,7 @@ require("packer").startup(function(use)
 	use("nvim-lualine/lualine.nvim") -- Fancier statusline
 	use("nanozuki/tabby.nvim") -- Fancier tabline
 	use("lukas-reineke/indent-blankline.nvim") -- Add indentation guides even on blank lines
-	--  use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
+  use("numToStr/Comment.nvim") -- "gc" to comment visual regions/lines
 	--  use 'tpope/vim-sleuth' -- Detect tabstop and shiftwidth automatically
 
 	-- Fuzzy Finder (files, lsp, etc)
@@ -119,6 +119,11 @@ require("packer").startup(function(use)
 
 	-- Wrapper for the stylua formatter
 	use({ "ckipp01/stylua-nvim" })
+  use({ "s1n7ax/nvim-window-picker", tag = 'v1.*',
+      config = function()
+        require'window-picker'.setup()
+      end,
+  })
 
 	-- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
 	local has_plugins, plugins = pcall(require, "custom.plugins")
