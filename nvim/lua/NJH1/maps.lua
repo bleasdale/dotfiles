@@ -14,7 +14,7 @@ km.set("n", ";", ":", { desc = "Swap ; for :" })
 km.set("n", ":", ";", { desc = "Swap ; for :" })
 
 -- Terminal
-km.set("t", "<C-[>", "<C-\\><C-n>", { desc = "Exit terminal mode." })
+km.set("t", "<C-[>", "<C-\\><C-n>", { silent = true, noremap = true, desc = "To Normal mode terminal." })
 -- ToggleTerm
 vim.cmd([[
 autocmd TermEnter term://*toggleterm#*
