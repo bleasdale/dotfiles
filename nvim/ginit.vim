@@ -1,14 +1,23 @@
 if exists('g:GuiLoaded')
-  GuiFont! Hack\ NF:12:l
+  GuiFont! JetBrainsMono NF:13:l
   " GuiPopupmenu 0
   " GuiTabline 0
   " GuiLinespace 2
 endif
 
-let s:fontsize = 12
+" Alternatives
+" CaskaydiaCove Nerd Font
+" Hack Nerd Font Mono
+" GoMono Nerd Font
+" Iosevka Nerd Font
+" JetBrainsMono Nerd Font
+" JetBrainsMonoMedium Nerd Font
+"
+
+let s:fontsize = 13
 function! AdjustFontSize(amount)
   let s:fontsize = s:fontsize+a:amount
-  :execute "GuiFont! Hack:h" . s:fontsize
+  :execute "GuiFont! JetBrainsMono NF:h" . s:fontsize
 endfunction
 
 " In normal mode, pressing numpad's+ increases the font
