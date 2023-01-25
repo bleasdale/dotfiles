@@ -1,3 +1,5 @@
 # .config/ repo gitignore file
 
 nvim/undo/
+OLD-nvim/
+
