@@ -53,9 +53,9 @@ vim.opt.matchtime = 3
 vim.opt.joinspaces = false        -- no double spaces with J join
 vim.opt.wildmenu = true
 vim.opt.wildmode = "full"
-vim.opt.wildignore:append( '*.swp', '*.bak', '*.log', '*.tmp', '*.jpg', '*.gif', '*.png', '*.ico', '*.a', '*.o', '*.so', '*.docx', '*.img', '*.xlsx', '*.exe', '*.flv' )
+vim.opt.wildignore:append{ '*.swp', '*.bak', '*.log', '*.tmp', '*.jpg', '*.gif', '*.png', '*.ico', '*.a', '*.o', '*.so', '*.docx', '*.img', '*.xlsx', '*.exe', '*.flv' }
 -- ignore LaTeX aux files
-vim.opt.wildignore:append( "*.aux", "*.lof", "*.lot", "*.fls", "*.out", "*.toc", "*.fmt", "*.fot", "*.cb", "*.cb2", ".*.lb", "__latex*", "*.fdb_latexmk", "*.synctex", "*.synctex(busy)", "*.synctex.gz", "*.synctex.gz(busy)", "*.pdfsync", "*.bbl", "*.bcf", "*.blg", "*.run.xml", "indent.log", "*.pdf" )
+vim.opt.wildignore:append{ "*.aux", "*.lof", "*.lot", "*.fls", "*.out", "*.toc", "*.fmt", "*.fot", "*.cb", "*.cb2", ".*.lb", "__latex*", "*.fdb_latexmk", "*.synctex", "*.synctex(busy)", "*.synctex.gz", "*.synctex.gz(busy)", "*.pdfsync", "*.bbl", "*.bcf", "*.blg", "*.run.xml", "indent.log", "*.pdf" }
 vim.opt.mouse = "a"
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
