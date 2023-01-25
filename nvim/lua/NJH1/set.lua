@@ -53,15 +53,18 @@ vim.opt.matchtime = 3
 vim.opt.joinspaces = false        -- no double spaces with J join
 vim.opt.wildmenu = true
 vim.opt.wildmode = full
-vim.opt.wildignore:append( '*.swp', '*.bak', '*.aux', '*.log', '*.pdf', '*.out', '*.tmp', '*.jpg', '*.gif', '*.png', '*.ico', '*.pdf', '*.a', '*.o', '*.so', '*.docx', '*.img', '*.xlsx', '*.exe', '*.flv' )
+vim.opt.wildignore:append( '*.swp', '*.bak', '*.log', '*.tmp', '*.jpg', '*.gif', '*.png', '*.ico', '*.a', '*.o', '*.so', '*.docx', '*.img', '*.xlsx', '*.exe', '*.flv' )
+-- ignore LaTeX aux files
+vim.opt.wildignore:append( "*.aux", "*.lof", "*.lot", "*.fls", "*.out", "*.toc", "*.fmt", "*.fot", "*.cb", "*.cb2", ".*.lb", "__latex*", "*.fdb_latexmk", "*.synctex", "*.synctex(busy)", "*.synctex.gz", "*.synctex.gz(busy)", "*.pdfsync", "*.bbl", "*.bcf", "*.blg", "*.run.xml", "indent.log", "*.pdf", )
 vim.opt.mouse = "a"
 vim.opt.hlsearch = true
 vim.opt.incsearch = true
 vim.opt.inccommand = "split"
 vim.opt.spelllang = { "en_gb" }
 vim.opt.encoding = "utf-8"
+vim.opt.fileencoding = "utf-8"
 vim.opt.foldenable = true
-vim.opt.foldmethod = "manual"
+vim.opt.foldmethod = "marker"
 vim.opt.hidden = true
 vim.opt.ruler = true
 --vim.opt.pumheight = 10            -- popup menu height
