@@ -1,5 +1,7 @@
 -- autocmds.lua
 
+local augroup = vim.api.nvim_create_augroup
+local autocmd = vim.api.nvim_create_autocmd
 
 -- Relative line numbering
 vim.cmd[[
@@ -10,8 +12,8 @@ augroup numbertoggle
 augroup END
 ]]
 
-local numtogGrp = vim.api.nvim_create_augroup("NumberToggle", { clear = true })
-vim.api.nvim_create_autocmd(
+local numtogGrp = augroup("NumberToggle", { clear = true })
+autocmd(
   { "BufEnter", "InsertLeave", "FocusGained", "WinEnter"},
   { pattern = "*",
     --command = "set relativenumber",  -- if callback, vim.api.nvim_buf_set_option(0,relativenumber,true) ?
@@ -23,7 +25,7 @@ vim.api.nvim_create_autocmd(
   }
 )
 
-vim.api.nvim_create_autocmd(
+autocmd(
   { "BufLeave", "InsertEnter", "FocusLost", "WinLeave"},
   { pattern = "*",
     --command = "set norelativenumber",
@@ -36,12 +38,12 @@ vim.api.nvim_create_autocmd(
 )
 
 -- Highlight on yank
-local yankGrp = vim.api.nvim_create_augroup("YankHighlight", { clear = true })
-vim.api.nvim_create_autocmd("TextYankPost", {
+local yankGrp = augroup("YankHighlight", { clear = true })
+autocmd("TextYankPost", {
   group = yankGrp,
   pattern = "*",
   callback = function()
-    vim.highlight.on_yank({higroup = "Visual", timeout = 500, on_visual = true, on_macro = true })
+    vim.highlight.on_yank({ timeout = 500, on_visual = true, on_macro = true })
   end,
   desc = "Highlight selection on yank",
 }
@@ -59,39 +61,59 @@ augroup terminal
 augroup END
 ]]
 
--- Change cwd to the location of the buffer in the current tabstop
-vim.cmd[[
-function! OnTabEnter(path)
-  if isdirectory(a:path)
-    let dirname = a:path
-  else
-    let dirname = fnamemodify(a:path, ":h")
-  endif
-  execute "tcd ". dirname
-endfunction()
+-- Could move this function into a separate utils.lua file
+--- Set window title
+function _G.set_title()
+    local file = vim.fn.expand("%:p:t")
+    local cwd = vim.fn.split(vim.fn.expand("%:p:h"):gsub("/", "\\"), "\\")
 
-autocmd TabNewEntered * call OnTabEnter(expand("<amatch>"))
-]]
+    local present, utils = pcall(require, "user.plugins.config.heirline.utils")
+    if not present then
+        return
+    end
 
--- Attempt to change above to lua - not right
--- Change cwd to the location of the buffer in the current tabstop
--- helper function -- can't work out how to change to lua yet
---function OnTabEnter(path)
---  if vim.fn.isdirectory("a:path") then
---    local dirname = a:path
---  else
---    local dirname = vim.fn.fnamemodify("a:path", ":h")
---  end
---  vim.fn.tcd(dirname)
---end
+    if file ~= "" and not utils.buffer_is_plugin() then
+        vim.opt.titlestring = cwd[#cwd] .. "/" .. file
+    else
+        vim.opt.titlestring = "Neovim"
+    end
+end
 
---local tabCwdEnter = vim.api.nvim_create_augroup("ChangeWkDir", { clear = true })
---vim.api.nvim_create_autocmd("ChangeCwdtoTab", {
---  group = tabCwdEnter,
---  pattern = "*",
---  callback = function()
---    OnTabEnter(vim.fn.expand("<amatch>"))
---  end,
---  desc = "Change the cwd to that of the current tab."
---}
---)
+local group = augroup("on_bufenter", { clear = true })
+autocmd("BufEnter", {
+    command = [[silent! lcd %:p:h]],
+    desc = "Set the parent directory of the current file as cwd.",
+    group = group,
+    pattern = "*.*",
+})
+autocmd("BufEnter", {
+    callback = function()
+        set_title()
+    end,
+    desc = "Set application window title.",
+    group = group,
+    pattern = "*",
+})
+autocmd("BufEnter", {
+    callback = function()
+        vim.opt_local.formatoptions:remove({ "r", "o" })
+    end,
+    desc = "After pressing <Enter> in insert mode, and on 'o' or 'O', disable inserting comment leader.",
+    group = group,
+    pattern = "*",
+})
+
+-- -- Change cwd to the location of the buffer in the current tabstop
+-- vim.cmd[[
+-- function! OnTabEnter(path)
+--   if isdirectory(a:path)
+--     let dirname = a:path
+--   else
+--     let dirname = fnamemodify(a:path, ":h")
+--   endif
+--   execute "tcd ". dirname
+-- endfunction()
+--
+-- autocmd TabNewEntered * call OnTabEnter(expand("<amatch>"))
+-- ]]
+

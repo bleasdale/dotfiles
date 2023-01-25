@@ -63,6 +63,9 @@ local servers = {
     Lua = {
       workspace = { checkThirdParty = false },
       telemetry = { enable = false },
+      diagnostics = {
+        globals = { 'vim' } -- suppress warnings of 'vim' as undefined global
+      },
     },
   },
   yamlls = {},
