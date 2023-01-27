@@ -1,4 +1,5 @@
 -- Vimtex setup
+
 vim.g.tex_flavor = 'latex'
 vim.g.tex_conceal = ''
 vim.g.vimtex_compiler_progname = 'latexmk'
@@ -7,11 +8,13 @@ vim.g.vimtex_compiler_latexmk_engines = {
 }
 vim.g.vimtex_view_general_viewer = 'SumatraPDF.exe'
 vim.g.vimtex_view_general_options = [[--unique -reuse-instance -forward-search file:@tex @line @pdf]]
+-- the following option is deprecated
+-- vim.g.vimtex_view_general_options_latexmk = '--unique'
 
 --Add the following line in Sumatra settings for inverse search:
 --cmd /c start /min nvim --headless -c "PackerLoad vimtex" -c "VimtexInverseSearch %l '%f'"
 
---vim.g.vimtex_compiler_latexmk = {
+-- vim.g.vimtex_compiler_latexmk = {
 --         'executable' : 'latexmk',
 --         'options' : [
 --           '-pdf',
