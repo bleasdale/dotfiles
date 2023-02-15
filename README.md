@@ -2,6 +2,7 @@
 ---
 
 TODO: symlink `~/.<files>` and include in this Repo
+    possibly use GNU stow.
 
 # neovim - .config/nvim
 ## With many thanks to the excellent documentation from neovim, plugin authors and a multitude of other people's configs.
